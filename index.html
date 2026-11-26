@@ -79,6 +79,7 @@
     font-style: italic;
     color: var(--text);
     letter-spacing: -0.02em;
+    text-decoration: none;
   }
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -158,7 +159,7 @@
     margin-bottom: 1.5rem;
     animation: fadeUp 0.7s 0.2s ease both;
     line-height: 1.6;
-    max-width: 480px;
+    max-width: 500px;
   }
   .hero-role strong { color: var(--accent3); font-weight: 500; }
   .hero-ctas {
@@ -299,7 +300,7 @@
     font-size: 0.85rem; color: var(--muted);
   }
   .chip-icon { font-size: 1rem; }
-  .chip a { color: var(--accent); text-decoration: none; }
+  .chip a { color: var(--accent); text-decoration: none; cursor: none; }
   .chip a:hover { text-decoration: underline; }
 
   /* SKILLS */
@@ -393,7 +394,7 @@
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 2rem 2.5rem;
-    max-width: 640px;
+    max-width: 680px;
     margin-top: 2.5rem;
     display: flex; gap: 2rem; align-items: flex-start;
     transition: border-color 0.25s;
@@ -417,7 +418,7 @@
   }
 
   /* EXTRACURRICULAR */
-  .extra-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .extra-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
   .extra-item {
     display: flex; align-items: center; gap: 0.75rem;
     background: var(--card); border: 1px solid var(--border);
@@ -427,7 +428,7 @@
   .extra-item:hover { border-color: var(--accent2); color: var(--accent2); }
   .extra-item .e-year { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--muted); }
 
-  /* CONTACT */
+  /* CONTACT & REFERENCES */
   #contact { background: var(--bg); }
   .contact-wrapper {
     display: grid;
@@ -444,25 +445,49 @@
     background: var(--card); border: 1px solid var(--border);
     border-radius: 12px; text-decoration: none; color: var(--text);
     font-size: 0.88rem; transition: all 0.25s;
+    cursor: none;
   }
   .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
   .contact-link .c-icon { font-size: 1.1rem; }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label { font-size: 0.78rem; letter-spacing: 0.05em; color: var(--muted); font-weight: 500; }
-  .form-group input, .form-group textarea {
+
+  .references-box { display: flex; flex-direction: column; gap: 1rem; }
+  .ref-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 0.5rem;
+  }
+  .ref-card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 0.85rem 1rem;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    transition: border-color 0.2s;
-    outline: none; resize: none;
+    border-radius: 14px;
+    padding: 1.4rem 1.5rem;
+    transition: border-color 0.25s, transform 0.25s;
   }
-  .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
-  .form-group textarea { height: 120px; }
+  .ref-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .ref-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .ref-title {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+  }
+  .ref-email {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-decoration: none;
+    cursor: none;
+  }
+  .ref-email:hover { text-decoration: underline; }
 
   /* FOOTER */
   footer {
@@ -472,7 +497,7 @@
     background: var(--bg);
   }
   footer p { font-size: 0.8rem; color: var(--muted); }
-  .footer-lang { display: flex; gap: 0.75rem; }
+  .footer-lang { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
   .lang-pill {
     font-size: 0.72rem; padding: 0.25rem 0.6rem;
     border-radius: 4px; background: var(--surface2);
@@ -529,7 +554,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">S<span>.</span>W</div>
+  <a href="#hero" class="nav-logo">S<span>.</span>W</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -546,17 +571,17 @@
   <div class="hero-bg-orb orb3"></div>
 
   <div class="hero-text">
-    <div class="hero-tag">Available for Internships</div>
+    <div class="hero-tag">Seeking Data Science / Analyst Internships</div>
     <h1 class="hero-name">
       Shehani
       <span class="line2">Wickramarathne</span>
     </h1>
     <p class="hero-role">
-      Software Engineering undergraduate at <strong>NIBM Sri Lanka</strong> — crafting web apps, data dashboards & IoT systems. Passionate about <strong>data analytics</strong> and full-stack development.
+      Third-year <strong>Computer Science with Data Science</strong> undergraduate at NIBM Sri Lanka — uncovering stories in messy datasets and building <strong>AI-powered & full-stack</strong> applications.
     </p>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-primary">View Projects →</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <a href="#contact" class="btn btn-outline">Connect with Me</a>
     </div>
   </div>
 
@@ -566,7 +591,7 @@
         <img src="cv.jpeg" alt="Shehani Wickramarathne" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#1a1a26,#2a2a3d)'; this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-family:Playfair Display,serif;font-size:4rem;color:#7c6aff\'>SW</div>'"/>
       </div>
       <div class="floating-badge badge-top">
-        <div class="badge-dot"></div> Software Engineering
+        <div class="badge-dot"></div> Data Science & SE
       </div>
       <div class="floating-badge badge-bot">
         📍 Kandy, Sri Lanka
@@ -580,32 +605,31 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="section-label">About Me</div>
-  <h2 class="section-title">Turning ideas into<br>working software</h2>
+  <h2 class="section-title">Finding stories in data &<br>building smart software</h2>
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>I'm a <strong>motivated second-year undergraduate</strong> pursuing a BSc (Hons) in Software Engineering at the National Institute of Business Management (NIBM), Sri Lanka. My passion spans across software development, data analysis, and business intelligence.</p>
-      <p>Proficient in tools such as <strong>Power BI and SPSS</strong>, with a solid understanding of data structures, forecasting techniques, and strategic analysis. I have hands-on experience developing web and desktop applications using a diverse tech stack.</p>
-      <p>I've also worked on <strong>IoT-based systems</strong> integrating sensors and cloud platforms. A detail-oriented individual with excellent problem-solving skills, I'm actively seeking an internship to apply my expertise while growing in data analytics and IT management.</p>
-      <div class="info-chips" style="margin-top:2rem">
-        <div class="chip"><span class="chip-icon">📧</span> <a href="mailto:shehanibhagya755@gmail.com">shehanibhagya755@gmail.com</a></div>
-        <div class="chip"><span class="chip-icon">📞</span> 0778338447</div>
-        <div class="chip"><span class="chip-icon">📍</span> 216/1, Aladeniya, Werellagama, Kandy</div>
-        <div class="chip"><span class="chip-icon">🎂</span> 13 March 2002</div>
-        <div class="chip"><span class="chip-icon">💼</span> <span>LinkedIn: Shehani Wickramarathe</span></div>
-        <div class="chip"><span class="chip-icon">💻</span> <span>GitHub: Shehani-2002</span></div>
+      <p>I'm a <strong>third-year BSc (Hons) Computer Science with Data Science</strong> undergraduate at the National Institute of Business Management (NIBM), combining a solid two-year software engineering foundation with a third-year specialization in data science.</p>
+      <p>I enjoy uncovering insights hidden in messy datasets—from building interactive <strong>Power BI</strong> sales dashboards with decision tree regression to designing and running <strong>SPSS</strong> survey studies using ANOVA and Chi-square hypothesis testing.</p>
+      <p>Alongside analytics, I build full-stack and AI-driven applications, including a polyglot clinic management system and an Android travel planner powered by the <strong>Gemini API and TensorFlow Lite</strong>. As a former batch representative and NIBM IT Society member, I communicate clearly and thrive in collaborative teams.</p>
+      <div class="info-chips">
+        <div class="chip"><span class="chip-icon">📧</span> <a href="mailto:shehaniwickramarathne024@gmail.com">shehaniwickramarathne024@gmail.com</a></div>
+        <div class="chip"><span class="chip-icon">📞</span> <a href="tel:+94778338447">+94 77 833 8447</a></div>
+        <div class="chip"><span class="chip-icon">📍</span> 216/1, Aladeniya, Werellagama, Kandy, Sri Lanka</div>
+        <div class="chip"><span class="chip-icon">💼</span> <a href="https://www.linkedin.com/search/results/all/?keywords=Shehani%20Wickramarathne" target="_blank" rel="noopener">LinkedIn: Shehani Wickramarathne</a></div>
+        <div class="chip"><span class="chip-icon">💻</span> <a href="https://github.com/Shehani-2002" target="_blank" rel="noopener">GitHub: github.com/Shehani-2002</a></div>
       </div>
     </div>
     <div class="about-stats reveal">
       <div class="stat-card">
         <span class="num">6+</span>
-        <span class="label">Projects Completed</span>
+        <span class="label">Projects Built</span>
       </div>
       <div class="stat-card">
-        <span class="num">10+</span>
-        <span class="label">Technologies Used</span>
+        <span class="num">15+</span>
+        <span class="label">Tools & Technologies</span>
       </div>
       <div class="stat-card">
-        <span class="num">2nd</span>
+        <span class="num">3rd</span>
         <span class="label">Year Undergraduate</span>
       </div>
       <div class="stat-card">
@@ -626,53 +650,57 @@
     <div class="skill-group">
       <div class="skill-group-title">// Programming Languages</div>
       <div class="skill-tags">
-        <span class="skill-tag accent">HTML</span>
-        <span class="skill-tag accent">CSS</span>
+        <span class="skill-tag accent">Python</span>
+        <span class="skill-tag accent">Java</span>
+        <span class="skill-tag accent">Kotlin</span>
+        <span class="skill-tag accent">C#</span>
         <span class="skill-tag accent">JavaScript</span>
         <span class="skill-tag accent">PHP</span>
-        <span class="skill-tag accent">MySQL</span>
-        <span class="skill-tag accent">Java</span>
-        <span class="skill-tag accent">C#</span>
-        <span class="skill-tag accent">C++</span>
+        <span class="skill-tag accent">C / C++</span>
+        <span class="skill-tag accent">HTML5</span>
+        <span class="skill-tag accent">CSS3</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title">// Frameworks & Platforms</div>
+      <div class="skill-group-title">// Data Science & Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag pink">Power BI</span>
+        <span class="skill-tag pink">DAX & Power Query</span>
+        <span class="skill-tag pink">SPSS</span>
+        <span class="skill-tag pink">R Studio</span>
+        <span class="skill-tag pink">Data Modelling</span>
+        <span class="skill-tag pink">Decision Tree Regression</span>
+        <span class="skill-tag pink">ANOVA & Chi-Square</span>
+        <span class="skill-tag pink">Hypothesis Testing</span>
+        <span class="skill-tag pink">TensorFlow Lite</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">// Web, Backend & Databases</div>
       <div class="skill-tags">
         <span class="skill-tag green">React</span>
         <span class="skill-tag green">Node.js</span>
         <span class="skill-tag green">Express.js</span>
+        <span class="skill-tag green">REST APIs</span>
+        <span class="skill-tag green">SQL</span>
+        <span class="skill-tag green">MySQL</span>
         <span class="skill-tag green">MongoDB</span>
+        <span class="skill-tag green">Oracle Database</span>
         <span class="skill-tag green">Firebase</span>
-        <span class="skill-tag green">Oracle DB</span>
-        <span class="skill-tag green">Arduino IDE</span>
-        <span class="skill-tag green">Android (Java/Kotlin)</span>
+        <span class="skill-tag green">Room Database</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-group-title">// Software Tools</div>
+      <div class="skill-group-title">// IoT, AI & Developer Tools</div>
       <div class="skill-tags">
-        <span class="skill-tag pink">Power BI</span>
-        <span class="skill-tag pink">SPSS</span>
-        <span class="skill-tag pink">R Studio</span>
-        <span class="skill-tag pink">Visual Studio Code</span>
-        <span class="skill-tag pink">IntelliJ IDEA</span>
-        <span class="skill-tag pink">Figma</span>
-        <span class="skill-tag pink">GitHub</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-title">// Concepts & Methods</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Data Analysis</span>
-        <span class="skill-tag">Business Intelligence</span>
-        <span class="skill-tag">IoT Systems</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">JWT Authentication</span>
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Blockchain</span>
-        <span class="skill-tag">UI/UX Design</span>
-        <span class="skill-tag">Statistical Analysis</span>
+        <span class="skill-tag">Gemini API</span>
+        <span class="skill-tag">Arduino IDE</span>
+        <span class="skill-tag">ESP8266 / ESP32</span>
+        <span class="skill-tag">IoT Sensors</span>
+        <span class="skill-tag">Git & GitHub</span>
+        <span class="skill-tag">Visual Studio Code</span>
+        <span class="skill-tag">IntelliJ IDEA</span>
+        <span class="skill-tag">Figma</span>
       </div>
     </div>
   </div>
@@ -687,9 +715,9 @@
   <div class="projects-grid">
 
     <div class="project-card featured reveal">
-      <div class="project-year">2025 → 2026</div>
-      <div class="project-title">🤖 AI-Powered Smart Travel Planner with Blockchain & AR Navigation</div>
-      <p class="project-desc">Developed an intelligent mobile travel planning app integrating AI, Machine Learning, Blockchain, and Augmented Reality. Features AI-based itinerary generation via Gemini API, personalized recommendations with TensorFlow Lite, blockchain-based review verification on Ethereum Testnet, and AR-powered navigation.</p>
+      <div class="project-year">2025</div>
+      <div class="project-title">🤖 AI-Powered Smart Travel Planner with Blockchain Verification & AR Navigation</div>
+      <p class="project-desc">Built a modular Android travel planning app integrating AI, Machine Learning, Blockchain, and Augmented Reality. Uses the Gemini API for AI-generated itineraries, TensorFlow Lite for personalized recommendations, Ethereum Testnet for tamper-proof review verification, and AR-powered navigation backed by Firebase and Room Database.</p>
       <div class="tech-stack">
         <span class="tech-pill">Android (Java/Kotlin)</span>
         <span class="tech-pill">Gemini API</span>
@@ -697,19 +725,46 @@
         <span class="tech-pill">Ethereum Testnet</span>
         <span class="tech-pill">Firebase</span>
         <span class="tech-pill">Room Database</span>
-        <span class="tech-pill">AR Technology</span>
+        <span class="tech-pill">AR</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-year">2025</div>
+      <div class="project-title">📊 Chocolate Sales Analysis (Power BI)</div>
+      <p class="project-desc">Cleaned and modelled a 1,095-record global sales dataset across 6 countries and 20 products with DAX measures and 10 interactive visuals. Identified January as the peak sales month (14.5% of total) and applied decision tree regression to pinpoint boxes shipped, product type, and country as key sales drivers.</p>
+      <div class="tech-stack">
+        <span class="tech-pill">Power BI</span>
+        <span class="tech-pill">DAX</span>
+        <span class="tech-pill">Power Query</span>
+        <span class="tech-pill">Data Modelling</span>
+        <span class="tech-pill">Decision Tree Regression</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-year">2025</div>
+      <div class="project-title">🔐 Cybersecurity Awareness Analysis (SPSS)</div>
+      <p class="project-desc">Designed a structured survey questionnaire and collected response data to evaluate cybersecurity awareness. Conducted ANOVA and Chi-square hypothesis testing in SPSS to identify statistically significant differences across demographic and organizational groups.</p>
+      <div class="tech-stack">
+        <span class="tech-pill">SPSS</span>
+        <span class="tech-pill">Statistical Analysis</span>
+        <span class="tech-pill">ANOVA</span>
+        <span class="tech-pill">Chi-Square</span>
+        <span class="tech-pill">Hypothesis Testing</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-year">2026</div>
-      <div class="project-title">🏥 CareLink — Clinic Management System</div>
-      <p class="project-desc">Full-stack clinic system using Polyglot Persistence with MongoDB & Oracle DB. Patient records, appointment scheduling with conflict detection, automated billing, JWT authentication, and RESTful API architecture.</p>
+      <div class="project-title">🏥 CareLink: Clinic Management System</div>
+      <p class="project-desc">Developed a full-stack clinic management platform implementing Polyglot Persistence with MongoDB (NoSQL) and Oracle Database (SQL) side by side. Features RESTful APIs for patient records, conflict-aware appointment scheduling, automated invoice generation, a real-time React dashboard, and JWT authentication.</p>
       <div class="tech-stack">
-        <span class="tech-pill">Node.js</span>
         <span class="tech-pill">React</span>
+        <span class="tech-pill">Node.js</span>
+        <span class="tech-pill">Express.js</span>
         <span class="tech-pill">MongoDB</span>
-        <span class="tech-pill">Oracle DB</span>
+        <span class="tech-pill">Oracle Database</span>
         <span class="tech-pill">JWT</span>
         <span class="tech-pill">REST APIs</span>
       </div>
@@ -717,50 +772,26 @@
 
     <div class="project-card reveal">
       <div class="project-year">2026</div>
-      <div class="project-title">💡 LumiSmart — IoT Smart Street Lighting</div>
-      <p class="project-desc">IoT-based street lighting system that auto-adjusts brightness based on environmental conditions and motion detection, reducing energy consumption and streaming sensor data to the cloud for real-time monitoring.</p>
+      <div class="project-title">💡 LumiSmart: Smart IoT Street Lighting</div>
+      <p class="project-desc">Designed an IoT-based smart street lighting system on ESP8266/ESP32 microcontrollers that dynamically adjusts brightness using motion and environmental sensors. Streams real-time telemetry to Firebase for cloud monitoring while cutting energy consumption.</p>
       <div class="tech-stack">
         <span class="tech-pill">Arduino IDE (C/C++)</span>
-        <span class="tech-pill">ESP8266/ESP32</span>
+        <span class="tech-pill">ESP8266 / ESP32</span>
         <span class="tech-pill">Sensors</span>
         <span class="tech-pill">Firebase</span>
+        <span class="tech-pill">IoT</span>
       </div>
     </div>
 
     <div class="project-card reveal">
       <div class="project-year">2025</div>
       <div class="project-title">📦 Automated Inventory Management System</div>
-      <p class="project-desc">Web-based inventory system for a yoghurt distribution agency. Features CRUD operations, automated stock updates, and comprehensive report generation for managing stock, sales, and supplier records.</p>
+      <p class="project-desc">Built a web-based inventory management platform for a yoghurt distribution agency to track stock levels, sales, and supplier records. Implemented full CRUD workflows, automated stock updates, and structured reporting backed by a relational MySQL database.</p>
       <div class="tech-stack">
-        <span class="tech-pill">C#</span>
         <span class="tech-pill">MySQL</span>
-        <span class="tech-pill">HTML/CSS</span>
+        <span class="tech-pill">HTML5</span>
+        <span class="tech-pill">CSS3</span>
         <span class="tech-pill">JavaScript</span>
-        <span class="tech-pill">PHP</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-year">2026</div>
-      <div class="project-title">📊 Power BI — Chocolate Sales Analysis</div>
-      <p class="project-desc">Interactive business intelligence dashboard analyzing global chocolate sales data. Includes data cleaning, modeling, and visualizations covering sales trends, regional performance, and product comparisons for data-driven decisions.</p>
-      <div class="tech-stack">
-        <span class="tech-pill">Power BI</span>
-        <span class="tech-pill">Data Modeling</span>
-        <span class="tech-pill">DAX</span>
-        <span class="tech-pill">Data Visualization</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-year">2025</div>
-      <div class="project-title">🔐 SPSS — Cybersecurity Awareness Analysis</div>
-      <p class="project-desc">Statistical analysis using SPSS to evaluate cybersecurity awareness from survey data. Applied ANOVA and Chi-square tests to identify significant differences in awareness across demographics and organizational factors.</p>
-      <div class="tech-stack">
-        <span class="tech-pill">SPSS</span>
-        <span class="tech-pill">ANOVA</span>
-        <span class="tech-pill">Chi-square tests</span>
-        <span class="tech-pill">Survey Analysis</span>
       </div>
     </div>
 
@@ -776,21 +807,21 @@
   <div class="edu-card reveal">
     <div class="edu-icon">🎓</div>
     <div>
-      <div class="edu-degree">BSc (Hons) in Software Engineering</div>
-      <div class="edu-school">National Institute of Business Management (NIBM), Sri Lanka</div>
-      <div class="edu-period">2024 – Present · Second-Year Undergraduate</div>
+      <div class="edu-degree">BSc (Hons) Computer Science with Data Science</div>
+      <div class="edu-school">National Institute of Business Management (NIBM), Colombo, Sri Lanka</div>
+      <div class="edu-period">2024 to Present · Third-Year Undergraduate</div>
     </div>
   </div>
 
   <div style="margin-top:3rem" class="reveal">
-    <div class="section-label" style="margin-bottom:1rem">Extra-Curricular</div>
+    <div class="section-label" style="margin-bottom:1rem">Extra-Curricular Activities</div>
     <div class="extra-row">
       <div class="extra-item">
         💻 NIBM IT Society — Member
         <span class="e-year">2024 – Present</span>
       </div>
       <div class="extra-item">
-        🎓 Batch Representative — DSE24.1F Batch
+        🎓 Batch Representative — Kandy NIBM (KADSE24.1F)
         <span class="e-year">2024</span>
       </div>
     </div>
@@ -808,42 +839,35 @@
 
 <div class="section-divider"></div>
 
-<!-- CONTACT -->
+<!-- CONTACT & REFERENCES -->
 <section id="contact">
-  <div class="section-label">Contact</div>
-  <h2 class="section-title">Let's work together</h2>
+  <div class="section-label">Contact & References</div>
+  <h2 class="section-title">Let's connect</h2>
   <div class="contact-wrapper">
     <div class="contact-info reveal">
-      <p>I'm actively looking for internship opportunities in software development and data analytics. Whether you have a question, a project, or just want to say hi — my inbox is open!</p>
+      <p>I'm actively seeking a <strong>Data Science or Data Analyst internship</strong> where I can learn from an experienced team and apply analytical and software engineering skills to real business problems. Feel free to reach out directly via email, phone, or GitHub.</p>
       <div class="contact-links">
-        <a href="mailto:shehanibhagya755@gmail.com" class="contact-link">
+        <a href="mailto:shehaniwickramarathne024@gmail.com" class="contact-link">
           <span class="c-icon">📧</span>
           <div>
             <div style="font-weight:600; font-size:0.82rem; margin-bottom:0.1rem">Email</div>
-            <div style="color:var(--muted); font-size:0.78rem">shehanibhagya755@gmail.com</div>
+            <div style="color:var(--muted); font-size:0.78rem">shehaniwickramarathne024@gmail.com</div>
           </div>
         </a>
-        <a href="tel:0778338447" class="contact-link">
+        <a href="tel:+94778338447" class="contact-link">
           <span class="c-icon">📞</span>
           <div>
             <div style="font-weight:600; font-size:0.82rem; margin-bottom:0.1rem">Phone</div>
-            <div style="color:var(--muted); font-size:0.78rem">0778338447</div>
+            <div style="color:var(--muted); font-size:0.78rem">+94 77 833 8447</div>
           </div>
         </a>
-        <div class="contact-link">
-          <span class="c-icon">💼</span>
-          <div>
-            <div style="font-weight:600; font-size:0.82rem; margin-bottom:0.1rem">LinkedIn</div>
-            <div style="color:var(--muted); font-size:0.78rem">Shehani Wickramarathe</div>
-          </div>
-        </div>
-        <div class="contact-link">
-          <span class="c-icon">🐙</span>
+        <a href="https://github.com/Shehani-2002" target="_blank" rel="noopener" class="contact-link">
+          <span class="c-icon">💻</span>
           <div>
             <div style="font-weight:600; font-size:0.82rem; margin-bottom:0.1rem">GitHub</div>
-            <div style="color:var(--muted); font-size:0.78rem">Shehani-2002</div>
+            <div style="color:var(--muted); font-size:0.78rem">github.com/Shehani-2002</div>
           </div>
-        </div>
+        </a>
         <div class="contact-link">
           <span class="c-icon">📍</span>
           <div>
@@ -852,91 +876,75 @@
           </div>
         </div>
       </div>
-
-      <div style="margin-top:2rem">
-        <div class="section-label" style="margin-bottom:0.75rem">References</div>
-        <div style="font-size:0.82rem; color:var(--muted); line-height:1.8">
-          <strong style="color:var(--text)">Ms. Inoka Abhayasinghe</strong><br>
-          Senior Consultant / Lecturer, NIBM Kandy<br>
-          <a href="mailto:inoka.abayasinghe@nibm.lk" style="color:var(--accent); text-decoration:none">inoka.abayasinghe@nibm.lk</a>
-        </div>
-        <div style="font-size:0.82rem; color:var(--muted); line-height:1.8; margin-top:1rem">
-          <strong style="color:var(--text)">Ms. Anjula Weerasinghe</strong><br>
-          Lecturer / Consultant, NIBM Kandy<br>
-          <a href="mailto:anjula@nibm.lk" style="color:var(--accent); text-decoration:none">anjula@nibm.lk</a>
-        </div>
-      </div>
     </div>
 
-    <div class="contact-form reveal">
-      <div style="margin-bottom:0.5rem; font-size:0.78rem; color:var(--muted)">Send a message</div>
-      <div class="form-group">
-        <label>YOUR NAME</label>
-        <input type="text" placeholder="John Doe" />
+    <div class="references-box reveal">
+      <div class="ref-heading">// Academic References</div>
+      <div class="ref-card">
+        <div class="ref-name">Ms. Inoka Abhayasinghe</div>
+        <div class="ref-title">Senior Consultant / Lecturer<br>National Institute of Business Management (NIBM) — Kandy, Sri Lanka</div>
+        <a href="mailto:inoka.abayasinghe@nibm.lk" class="ref-email">inoka.abayasinghe@nibm.lk</a>
       </div>
-      <div class="form-group">
-        <label>EMAIL ADDRESS</label>
-        <input type="email" placeholder="john@example.com" />
+      <div class="ref-card">
+        <div class="ref-name">Ms. Anjula Weerasinghe</div>
+        <div class="ref-title">Lecturer / Consultant<br>National Institute of Business Management (NIBM) — Kandy, Sri Lanka</div>
+        <a href="mailto:anjula@nibm.lk" class="ref-email">anjula@nibm.lk</a>
       </div>
-      <div class="form-group">
-        <label>SUBJECT</label>
-        <input type="text" placeholder="Internship Opportunity" />
-      </div>
-      <div class="form-group">
-        <label>MESSAGE</label>
-        <textarea placeholder="Hi Shehani, I'd like to discuss..."></textarea>
-      </div>
-      <button class="btn btn-primary" style="width:100%; justify-content:center; font-size:0.9rem; padding:0.9rem;" onclick="alert('Thank you! This is a demo form.')">Send Message →</button>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Shehani Wickramarathne · Crafted with passion from Kandy, Sri Lanka 🇱🇰</p>
+  <p>© 2026 Shehani Wickramarathne. Crafted with precision.</p>
   <div class="footer-lang">
-    <span class="lang-pill native">Sinhala — Native</span>
-    <span class="lang-pill">English — Bilingual</span>
-    <span class="lang-pill">Tamil — Basic</span>
+    <span class="lang-pill native">Sinhala · Native</span>
+    <span class="lang-pill">English · Fluent</span>
+    <span class="lang-pill">Tamil · Basic</span>
   </div>
 </footer>
 
 <script>
-  // Cursor
+  // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.transform = `translate(${mx - 6}px, ${my - 6}px)`;
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.transform = `translate(${mouseX - 6}px, ${mouseY - 6}px)`;
   });
-  function animRing() {
-    rx += (mx - rx - 18) * 0.12;
-    ry += (my - ry - 18) * 0.12;
-    ring.style.transform = `translate(${rx}px, ${ry}px)`;
-    requestAnimationFrame(animRing);
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+    requestAnimationFrame(animateRing);
   }
-  animRing();
-  document.querySelectorAll('a, button, .project-card, .skill-tag, .stat-card').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform += ' scale(2)'; ring.style.opacity = '0.3'; });
-    el.addEventListener('mouseleave', () => { ring.style.opacity = '1'; });
+  animateRing();
+
+  document.querySelectorAll('a, button, .skill-tag, .project-card, .stat-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform += ' scale(1.6)';
+      ring.style.opacity = '0.9';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.opacity = '0.5';
+    });
   });
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.12 });
 
-  // Stagger project cards
-  document.querySelectorAll('.project-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 0.06}s`;
-  });
+  reveals.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
